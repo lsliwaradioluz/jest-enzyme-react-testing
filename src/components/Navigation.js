@@ -6,6 +6,7 @@ const Navigation = (props) => {
   return (
     <$Navigation>
       <$Link to="counter">Counter</$Link>
+      <$Link to="jotto">Jotto</$Link>
     </$Navigation>
   );
 };
@@ -18,10 +19,14 @@ const $Navigation = styled.nav`
 const $Link = styled(Link)`
   text-decoration: none;
   color: black;
-  transition: transform .3s;
+  transition: transform 0.3s;
   display: inline-block;
+  margin-right: 0.75rem;
   &:hover {
     transform: translateY(3px);
+  }
+  &.active {
+    color: red;
   }
 `;
 
