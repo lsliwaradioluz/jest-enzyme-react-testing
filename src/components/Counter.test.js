@@ -31,6 +31,8 @@ test("clicking decrement button with counter at 0 does nothing", () => {
 });
 test("show error message when clicking decrement button with counter at 0", () => {
   const wrapper = setup(<Counter />);
+  const decrementButton = findByTestAttr(wrapper, "decrement-button");
+  decrementButton.simulate("click");
   const errorMessage = findByTestAttr(wrapper, "error-message");
   expect(errorMessage.length).toBe(1);
 });
@@ -43,6 +45,10 @@ test("clicking increment button increments counter display", () => {
 });
 test("clicking increment button clears the error message", () => {
   const wrapper = setup(<Counter />)
+  const decrementButton = findByTestAttr(wrapper, "decrement-button");
+  decrementButton.simulate("click");
+  const incrementButton = findByTestAttr(wrapper, "increment-button");
+  incrementButton.simulate("click");
   const errorMessage = findByTestAttr(wrapper, "error-message")
   expect(errorMessage.length).toBe(0)
 })
