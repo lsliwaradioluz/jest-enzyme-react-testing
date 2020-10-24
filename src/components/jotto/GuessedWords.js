@@ -4,7 +4,19 @@ import PropTypes from "prop-types";
 const GuessedWords = (props) => {
   let contents;
   if (props.guessedWords.length === 0) {
-    contents = <span data-test="guess-instructions">Try to guess the secret word!</span>;
+    contents = (
+      <span data-test="guess-instructions">Try to guess the secret word!</span>
+    );
+  } else {
+    contents = (
+      <ul data-test="guessed-words">
+        {props.guessedWords.map((guessedWord, index) => (
+          <li data-test="guessed-word" key={index}>
+            {guessedWord.guessedWord} : {guessedWord.letterMatchCount}
+          </li>
+        ))}
+      </ul>
+    );
   }
   return <div data-test="component-guessed-words">{contents}</div>;
 };
