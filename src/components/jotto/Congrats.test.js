@@ -3,15 +3,15 @@ import { findByTestAttr, checkProps } from "../../testing/test-utils";
 import { shallow } from "enzyme";
 import Congrats from "./Congrats";
 
-const setup = (props = {}) => shallow(<Congrats {...props} />);
+const setup = (props = { success: false }) => shallow(<Congrats {...props} />);
 
 test("renders without errors", () => {
-  const wrapper = setup({ success: false });
+  const wrapper = setup();
   const appComponent = findByTestAttr(wrapper, "component-congrats");
   expect(appComponent.length).toBe(1);
 });
 test("renders no text when success prop is false", () => {
-  const wrapper = setup({ success: false });
+  const wrapper = setup();
   const text = findByTestAttr(wrapper, "component-congrats").text();
   expect(text).toBe("");
 });
