@@ -1,5 +1,7 @@
 import { shallow } from "enzyme";
 import checkPropTypes from "check-prop-types";
+import rootReducer from "../reducers/index";
+import { createStore } from "redux";
 
 export const setup = (component) => shallow(component);
 
@@ -14,4 +16,8 @@ export const checkProps = (component, conformingProps) => {
     component.name
   );
   expect(propError).toBeUndefined();
+};
+
+export const storeFactory = (initialState) => {
+  return createStore(rootReducer, initialState);
 };

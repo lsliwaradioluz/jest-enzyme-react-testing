@@ -7,6 +7,7 @@ const Navigation = (props) => {
     <$Navigation>
       <$Link to="counter">Counter</$Link>
       <$Link to="jotto">Jotto</$Link>
+      <$Link to="calculator">Calculator</$Link>
     </$Navigation>
   );
 };
