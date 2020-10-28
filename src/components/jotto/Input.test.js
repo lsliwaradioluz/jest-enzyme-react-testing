@@ -1,5 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
+import { guessWord } from "../../actions/index";
 
 import { findByTestAttr, storeFactory } from "../../testing/test-utils";
 import Input from "./Input";
@@ -49,6 +50,20 @@ describe("render", () => {
       const submitButton = findByTestAttr(wrapper, "submit-button");
       expect(submitButton.length).toBe(0);
     });
+  });
+});
+
+describe("redux props", () => {
+  test("has success piece of state as a prop", () => {
+    const success = true;
+    const wrapper = setup({ success });
+    const successProp = wrapper.instance().props.success;
+    expect(successProp).toBe(success);
+  });
+  test("`guessWord` is passed as props", () => {
+    const wrapper = setup();
+    const guessWordProp = wrapper.instance().props.guessWord;
+    expect(guessWordProp).toBeInstanceOf(Function);
   });
 });
 

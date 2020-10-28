@@ -1,7 +1,7 @@
 import { shallow } from "enzyme";
 import checkPropTypes from "check-prop-types";
 import rootReducer from "../reducers/index";
-import { middlewares } from "../configureStore"
+import { middlewares } from "../configureStore";
 import { createStore, applyMiddleware } from "redux";
 
 export const setup = (component) => shallow(component);
@@ -20,5 +20,9 @@ export const checkProps = (component, conformingProps) => {
 };
 
 export const storeFactory = (initialState) => {
-  return createStore(rootReducer, initialState, applyMiddleware(...middlewares));
+  return createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(...middlewares)
+  );
 };
